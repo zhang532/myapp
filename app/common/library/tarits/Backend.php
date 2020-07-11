@@ -8,21 +8,32 @@ use Exception;
 trait Backend{
 
     public function index(){
-       
-        if($this->request->request('search_keys')){
+        
+        
+        if($this->request->request('keyField')){
            return $this->searchpage();
         }
-        list($where,$order,$sort)=$this->buildparams();
-        $list=$this->model->where($where)->order($order)->sort($sort)->paginate();
+        list($where,$order,$sort,$limit,$offset)=$this->buildparams();
+        $list=$this->model->where($where)->order($order)->sort($sort)->limit($offset,$limit)->select();
         $this->assign(['list'=>$list]);
         return $this->view->fetch();
     }
 
+    /***
+     * 查询条件
+     */
     public function buildparams(){
-
+        $params = $this->request->request();
+        $list['where']='';
+        $list['order']='';
+        $list['sort'] ='';
+        $list['limit']='';
     }
-
+    /**
+     * 搜索
+     */
     public function searchpage(){
+        $params = $this->request->request();
 
     }
     /**
