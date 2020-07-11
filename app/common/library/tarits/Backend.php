@@ -8,10 +8,23 @@ use Exception;
 trait Backend{
 
     public function index(){
-
+       
+        if($this->request->request('search_keys')){
+           return $this->searchpage();
+        }
+        list($where,$order,$sort)=$this->buildparams();
+        $list=$this->model->where($where)->order($order)->sort($sort)->paginate();
+        $this->assign(['list'=>$list]);
         return $this->view->fetch();
     }
 
+    public function buildparams(){
+
+    }
+
+    public function searchpage(){
+
+    }
     /**
      * 添加
      */
