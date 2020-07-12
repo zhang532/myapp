@@ -11,9 +11,9 @@ trait Backend{
         
         
         if($this->request->request('keyField')){
-           return $this->searchpage();
+           return $this->searchPage();
         }
-        list($where,$order,$sort,$limit,$offset)=$this->buildparams();
+        list($where,$order,$sort,$limit,$offset)=$this->buildParams();
         $list=$this->model->where($where)->order($order)->sort($sort)->limit($offset,$limit)->select();
         $this->assign(['list'=>$list]);
         return $this->view->fetch();
@@ -22,17 +22,20 @@ trait Backend{
     /***
      * 查询条件
      */
-    public function buildparams(){
+    public function buildParams(){
         $params = $this->request->request();
         $list['where']='';
         $list['order']='';
         $list['sort'] ='';
-        $list['limit']='';
+        $list['limit']=$params['limit'];
+        $list['offset']=$params['offset'];
+
+        return $list;
     }
     /**
      * 搜索
      */
-    public function searchpage(){
+    public function searchPage(){
         $params = $this->request->request();
 
     }
