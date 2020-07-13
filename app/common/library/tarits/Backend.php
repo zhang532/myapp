@@ -14,7 +14,7 @@ trait Backend{
            return $this->searchPage();
         }
         list($where,$order,$sort,$limit,$offset)=$this->buildParams();
-        $list=$this->model->where($where)->order($order)->sort($sort)->limit($offset,$limit)->select();
+        $list=$this->model->where($where)->order($order,$sort)->limit($offset,$limit)->select();
         $this->assign(['list'=>$list]);
         return $this->view->fetch();
     }
@@ -24,12 +24,15 @@ trait Backend{
      */
     public function buildParams(){
         $params = $this->request->request();
-        $list['where']='';
-        $list['order']='';
-        $list['sort'] ='';
+        
+
+        $list['order']=$params['order']; //'id_desc,sort_desc'
+        $list['sort'] =$params['sort'];
         $list['limit']=$params['limit'];
         $list['offset']=$params['offset'];
-
+        $params['filter']=explode(',',$params['filter']);
+        $list['where']=$params['filter'];
+        
         return $list;
     }
     /**
