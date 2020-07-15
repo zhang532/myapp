@@ -24,13 +24,15 @@ trait Backend{
      */
     public function buildParams(){
         $params = $this->request->request();
-        
-
         $list['order']=$params['order']; //'id_desc,sort_desc'
         $list['sort'] =$params['sort'];
         $list['limit']=$params['limit'];
         $list['offset']=$params['offset'];
         $params['filter']=explode(',',$params['filter']);
+        //设置查询参数
+        $params['filter'] ='like';
+        $params['filter'] ='not like';
+
         $list['where']=$params['filter'];
         
         return $list;
