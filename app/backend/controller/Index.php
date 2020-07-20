@@ -12,7 +12,7 @@ class Index
 		$list=$category->with('arts')->select()->toArray();  
 		// $art=new art;
 		// $list=$art->with('category')->select()->toArray();  
-		halt($list);      
+		dump($list);      
 
     }
 }
