@@ -24,29 +24,16 @@ trait Backend{
      */
     public function buildParams(){
         $params = $this->request->request();
-        $list['order']    = $params['order']; //'id_desc,sort_desc'
-        $list['sort']     = $params['sort'] ?? $this->model->getPk();
-        $list['limit']    = $params['limit'];
-        $list['offset']   = $params['offset'];
-        $filter = json_decode($params['filter'],true);
+        $list['order']    =$params['order']; //'id_desc,sort_desc'
+        $list['sort']     =$params['sort'];
+        $list['limit']    =$params['limit'];
+        $list['offset']   =$params['offset'];
+        $params['filter'] =explode(',',$params['filter']);
         //设置查询参数
-        $op =json_decode($params['op'],true);
+        $condition ='like %...%';
+        $condition ='not like %...%';
 
-        foreach($op as $k=>$v){
-            switch ($v) {
-                case 'LIKE':
-                case 'NOT LIKE':
-                case 'LIKE':
-                    $filter[$k]=array_keys($filter[$k]).array_values($filter[$k]);
-                    break;
-                
-                default:
-                    # code...
-                    break;
-            }
-        }
-
-        $list['where']=$filter;
+        $list['where']=$params['filter'];
         
         return $list;
     }

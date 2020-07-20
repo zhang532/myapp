@@ -37,7 +37,7 @@ trait Backend{
                 case 'LIKE':
                 case 'NOT LIKE':
                 case 'LIKE':
-                    $filter[$k]=array_keys($filter[$k]).array_values($filter[$k]);
+                    $filter [$k]=array_keys($filter [$k]);
                     break;
                 
                 default:
@@ -46,7 +46,7 @@ trait Backend{
             }
         }
 
-        $list['where']=$filter;
+        $list['where']=$params['filter'];
         
         return $list;
     }
