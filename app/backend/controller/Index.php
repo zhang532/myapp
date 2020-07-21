@@ -8,6 +8,8 @@ class Index
 {
     public function index()
     {	
+    	session('admin.username','aaa');
+    	dump(session('admin'));
     	$category=new Category;
 		$list=$category->with('arts')->select()->toArray();  
 		// $art=new art;
