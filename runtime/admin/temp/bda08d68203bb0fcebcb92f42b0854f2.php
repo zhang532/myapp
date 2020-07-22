@@ -1,4 +1,4 @@
-<?php /*a:6:{s:60:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\index\index.html";i:1595406384;s:66:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\container.html";i:1595406084;s:61:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\left.html";i:1595406148;s:63:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\header.html";i:1595406339;s:62:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\right.html";i:1595403120;s:63:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\footer.html";i:1595405830;}*/ ?>
+<?php /*a:6:{s:60:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\index\index.html";i:1595406685;s:66:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\container.html";i:1595406084;s:61:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\left.html";i:1595406148;s:63:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\header.html";i:1595406339;s:62:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\right.html";i:1595403120;s:63:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\footer.html";i:1595405830;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
