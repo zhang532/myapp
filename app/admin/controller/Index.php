@@ -13,7 +13,6 @@ class Index extends Auth
 	public function __construct(){
 
 		parent::__construct();
-	
 	}
 
     public function index()

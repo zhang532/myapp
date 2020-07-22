@@ -12,16 +12,17 @@ class User
     public function login()
     {	
     	
-    	dump(session('admin'));
+    	// dump(session('admin'));
+      
 
     	return view() ;
 
     }
 
     public function toLogin(){
-    	Session::set('admin.username','123123');
+    	Session::set('admin.username','fantastic');
     	
-    	return redirect("/admin/index/index");
+    	return redirect((string)url("/index/index"));
     	
     }
 
@@ -32,7 +33,7 @@ class User
 
     public function loginOut(){
     	session::pull('admin');
-    	return redirect("/admin/user/login");
+    	return redirect((string)url("/user/login"));
 
     }
 }

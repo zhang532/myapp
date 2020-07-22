@@ -11,6 +11,7 @@ class Auth
 	
 	function __construct()
 	{
-		echo "<header>用户:".session('admin.username')."<a href=".url('user/loginout').">退出</a></header>";
+		// $this->view->engine->layout('layouts/container');
+		
 	}
 }

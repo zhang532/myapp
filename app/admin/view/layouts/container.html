@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>后台管理</title>
+<link rel="icon" href="favicon.ico" type="image/ico">
+<link href="__BACKEND__css/bootstrap.min.css" rel="stylesheet">
+<link href="__BACKEND__css/materialdesignicons.min.css" rel="stylesheet">
+<link href="__BACKEND__css/style.min.css" rel="stylesheet">
+</head>
+  
+<body>
+<div class="lyear-layout-web">
+  <div class="lyear-layout-container">
+    <!--左侧导航-->
+   {block name="left"}{include file="layouts:left" /}{/block}
+     
+    <!--End 左侧导航-->
+    
+    <!--头部信息-->
+	{block name="header"}{include file="layouts:header" /}{/block}
+   <!--End 头部信息-->
+    
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
+     {block name="right"}{include file="layouts:right" /}{/block}
+    </main>
+    <!--End 页面主要内容-->
+  </div>
+</div>
+
+<script type="text/javascript" src="__BACKEND__js/jquery.min.js"></script>
+<script type="text/javascript" src="__BACKEND__js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__BACKEND__js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="__BACKEND__js/main.min.js"></script>
+{block name="footer"}{include file="layouts:footer" /}{/block}
+</body>
+</html>
