@@ -1,12 +1,12 @@
 <?php
 declare (strict_types = 1);
 
-namespace app\backend\controller;
-use app\backend\model\Category;
-use app\backend\model\Art;
+namespace app\admin\controller;
+use app\admin\model\Category;
+use app\admin\model\Art;
 use think\facade\Request;
 use think\facade\Session;
-use app\backend\library\Auth;
+use app\admin\library\Auth;
 
 class Index extends Auth
 {

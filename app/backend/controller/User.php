@@ -1,7 +1,7 @@
 <?php
 declare (strict_types = 1);
 
-namespace app\backend\controller;
+namespace app\admin\controller;
 
 
 use think\facade\Request;
@@ -21,7 +21,7 @@ class User
     public function toLogin(){
     	Session::set('admin.username','123123');
     	
-    	return redirect("/backend/index/index");
+    	return redirect("/admin/index/index");
     	
     }
 
@@ -32,7 +32,7 @@ class User
 
     public function loginOut(){
     	session::pull('admin');
-    	return redirect("/backend/user/login");
+    	return redirect("/admin/user/login");
 
     }
 }

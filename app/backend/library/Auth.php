@@ -1,5 +1,5 @@
 <?php
-namespace app\backend\library;
+namespace app\admin\library;
 
 use think\facade\Request;
 use think\facade\Session;

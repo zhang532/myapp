@@ -6,9 +6,9 @@ use think\facade\Session;
 use think\facade\Request;
 class Login
 {
-    protected $LoginUrl='/backend/user/login';
+    protected $LoginUrl='/admin/user/login';
 
-    protected $Redirect='/backend/';
+    protected $home='/admin/';
     /**
      * 处理请求
      *
@@ -17,12 +17,12 @@ class Login
      * @return Response
      */
     public function handle($request, \Closure $next){
-        if (!Session::has('admin') && !stristr(Request::url(),'/backend/user/') ) {
+        if (!Session::has('admin') && !stristr(Request::url(),'/admin/user/') ) {
             
              return redirect($this->LoginUrl); #去登陆
 
         }elseif(Session::has('admin') && $this->LoginUrl == $request->url()){
-            return redirect($this->Redirect); #去登陆
+            return redirect($this->home); #去登陆
         }
 
         return $next($request); #正常通过
