@@ -1,4 +1,4 @@
-<?php /*a:5:{s:60:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\index\index.html";i:1595410234;s:66:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\container.html";i:1595410141;s:61:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\left.html";i:1595408680;s:63:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\header.html";i:1595406339;s:63:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\footer.html";i:1595405830;}*/ ?>
+<?php /*a:5:{s:59:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\index\show.html";i:1595410217;s:66:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\container.html";i:1595410141;s:61:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\left.html";i:1595408680;s:63:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\header.html";i:1595406339;s:63:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\layouts\footer.html";i:1595405830;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -229,7 +229,7 @@
     <!--页面主要内容-->
     <main class="lyear-layout-content">
 		  <div class="container-fluid">
-			  {__block__}  
+			 1212 
 		  </div>
     </main>
     <!--End 页面主要内容-->

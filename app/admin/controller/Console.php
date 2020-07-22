@@ -8,7 +8,7 @@ use think\facade\Request;
 use think\facade\Session;
 use app\admin\library\Auth;
 
-class Index extends Auth
+class Console extends Auth
 {
 	public function __construct(){
 
@@ -17,19 +17,10 @@ class Index extends Auth
 
     public function index()
     {	
-    	$User= new User;
-    	$category=new Category;
-		$list=$category->with('arts')->select()->toArray();  
-		// $art=new art;
-		// $list=$art->with('category')->select()->toArray();  
-		// dump($list);      
+    	  
     	return view() ;
 
     }
 
-     public function show()
-    {	
-    	return view() ;
-
-    }
+    
 }

@@ -14,17 +14,19 @@
 <div class="lyear-layout-web">
   <div class="lyear-layout-container">
     <!--左侧导航-->
-   {block name="left"}{include file="layouts:left" /}{/block}
+   {include file="layouts:left" /}
      
     <!--End 左侧导航-->
     
     <!--头部信息-->
-	{block name="header"}{include file="layouts:header" /}{/block}
+	{include file="layouts:header" /}
    <!--End 头部信息-->
     
     <!--页面主要内容-->
     <main class="lyear-layout-content">
-     {block name="right"}{include file="layouts:right" /}{/block}
+		  <div class="container-fluid">
+			 {__CONTENT__} 
+		  </div>
     </main>
     <!--End 页面主要内容-->
   </div>
@@ -34,6 +36,6 @@
 <script type="text/javascript" src="__BACKEND__js/bootstrap.min.js"></script>
 <script type="text/javascript" src="__BACKEND__js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="__BACKEND__js/main.min.js"></script>
-{block name="footer"}{include file="layouts:footer" /}{/block}
+{include file="layouts:footer" /}
 </body>
 </html>

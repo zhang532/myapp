@@ -22,7 +22,7 @@ class User
     public function toLogin(){
     	Session::set('admin.username','fantastic');
     	
-    	return redirect((string)url("/index/index"));
+    	return redirect((string)url("/console/index"));
     	
     }
 
