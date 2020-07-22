@@ -5,13 +5,14 @@ namespace app\backend\controller;
 use app\backend\model\Category;
 use app\backend\model\Art;
 use think\facade\Request;
+use think\facade\Session;
+use app\backend\library\Auth;
 
-
-class Index 
+class Index extends Auth
 {
 	public function __construct(){
 
-		 echo Request::url();
+		parent::__construct();
 	
 	}
 
@@ -24,6 +25,12 @@ class Index
 		// $list=$art->with('category')->select()->toArray();  
 		// dump($list);      
     	return view() ;
+
+    }
+
+     public function show()
+    {	
+    	echo "555";
 
     }
 }

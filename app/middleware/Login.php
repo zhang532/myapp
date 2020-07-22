@@ -4,7 +4,6 @@ declare (strict_types = 1);
 namespace app\middleware;
 use think\facade\Session;
 use think\facade\Request;
-use app\backend\controller\User;
 class Login
 {
     protected $LoginUrl='/backend/user/login';
@@ -18,7 +17,6 @@ class Login
      * @return Response
      */
     public function handle($request, \Closure $next){
-        $user=new User;
         if (!Session::has('admin') && !stristr(Request::url(),'/backend/user/') ) {
             
              return redirect($this->LoginUrl); #去登陆
@@ -28,9 +26,6 @@ class Login
         }
 
         return $next($request); #正常通过
-
-        
-        
 
     }
 }
