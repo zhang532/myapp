@@ -4,10 +4,12 @@ declare (strict_types = 1);
 namespace app\middleware;
 use think\facade\Session;
 use think\facade\Request;
-
+use app\backend\controller\User;
 class Login
 {
-    protected $url='/backend/user/login';
+    protected $LoginUrl='/backend/user/login';
+
+    protected $Redirect='/backend/';
     /**
      * 处理请求
      *
@@ -16,13 +18,18 @@ class Login
      * @return Response
      */
     public function handle($request, \Closure $next){
-
-        //session & url
-        if (!Session::has('admin') &&  strstr('/backend/user/',Request::url()) ) {
+        $user=new User;
+        if (!Session::has('admin') && !stristr(Request::url(),'/backend/user/') ) {
             
-            return redirect($this->url);
+             return redirect($this->LoginUrl); #去登陆
+
+        }elseif(Session::has('admin') && $this->LoginUrl == $request->url()){
+            return redirect($this->Redirect); #去登陆
         }
-            return $next($request);
+
+        return $next($request); #正常通过
+
+        
         
 
     }

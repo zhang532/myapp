@@ -11,7 +11,7 @@ class Index
 {
 	public function __construct(){
 
-		
+		 echo Request::url();
 	
 	}
 
@@ -22,7 +22,7 @@ class Index
 		$list=$category->with('arts')->select()->toArray();  
 		// $art=new art;
 		// $list=$art->with('category')->select()->toArray();  
-		dump($list);      
+		// dump($list);      
     	return view() ;
 
     }
