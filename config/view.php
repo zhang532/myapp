@@ -24,6 +24,7 @@ return [
     'taglib_end'    => '}',
 	'tpl_replace_string' => [
 	'__STATIC__'=>'/static',
-	'__BACKEND__'=>'/static/libs/backend/',
+	'__BACKEND__'=>'/static/libs/bootstrap-template/',
+	'__ADMIN__'=>'/static/backend/',
 	]
 ];

@@ -6,9 +6,9 @@ use app\admin\model\Category;
 use app\admin\model\Art;
 use think\facade\Request;
 use think\facade\Session;
-use app\admin\library\Auth;
+use app\admin\library\Backend;
 
-class Console extends Auth
+class Console extends Backend
 {
 	public function __construct(){
 

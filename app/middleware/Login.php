@@ -8,7 +8,7 @@ use think\facade\Session;
 use think\facade\Request;
 class Login
 {
-    protected $LoginUrl='user/login';
+    protected $LoginUrl='login/index';
 
     protected $HomeUrl='/admin';
     /**
@@ -19,7 +19,7 @@ class Login
      * @return Response
      */
     public function handle($request, \Closure $next){
-        if (!Session::has('admin') && !stristr(Request::url(),'/user/') ) {
+        if (!Session::has('admin') && !stristr(Request::url(),'/login/') ) {
             
              return redirect((string)url($this->LoginUrl)); #去登陆
 

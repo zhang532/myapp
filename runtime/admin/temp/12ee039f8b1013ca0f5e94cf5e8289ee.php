@@ -1,4 +1,4 @@
-<?php /*a:1:{s:59:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\user\login.html";i:1595407236;}*/ ?>
+<?php /*a:1:{s:60:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\login\index.html";i:1595490629;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <title>登录页面 </title>
 <link rel="icon" href="favicon.ico" type="image/ico">
-<link href="/static/libs/backend/css/bootstrap.min.css" rel="stylesheet">
-<link href="/static/libs/backend/css/materialdesignicons.min.css" rel="stylesheet">
-<link href="/static/libs/backend/css/style.min.css" rel="stylesheet">
+<link href="/static/libs/bootstrap-template/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/libs/bootstrap-template/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="/static/libs/bootstrap-template/css/style.min.css" rel="stylesheet">
 <style>
 .lyear-wrapper {
     position: relative;
@@ -55,7 +55,8 @@
       <div class="login-header text-center">
         <h3>后台管理</h3>
       </div>
-      <form action="<?php echo url('/user/tologin'); ?>"  method="post">
+      <form action="javascript:;"  method="post">
+		  <?php echo token_field(); ?>
         <div class="form-group has-feedback feedback-left">
           <input type="text" placeholder="请输入您的用户名" class="form-control" name="username" id="username" />
           <span class="mdi mdi-account form-control-feedback" aria-hidden="true"></span>
@@ -70,18 +71,19 @@
             <span class="mdi mdi-check-all form-control-feedback" aria-hidden="true"></span>
           </div>
           <div class="col-xs-5">
-            <img src="/static/libs/backend/images/captcha.png" class="pull-right" id="captcha" style="cursor: pointer;" onclick="this.src=this.src+'?d='+Math.random();" title="点击刷新" alt="captcha">
+            <img src="<?php echo url('/login/verify'); ?>" width="120px" class="pull-right" id="captcha" style="cursor: pointer;" onclick="this.src=this.src+'?d='+Math.random();" title="点击刷新" alt="captcha">
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-block btn-primary" type="submit" >立即登录</button>
+          <button class="btn btn-block btn-primary btn-submit" type="submit" >立即登录</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-<script type="text/javascript" src="/static/libs/backend/js/jquery.min.js"></script>
-<script type="text/javascript" src="/static/libs/backend/js/bootstrap.min.js"></script>
-<script type="text/javascript">;</script>
+<script type="text/javascript" src="/static/libs/bootstrap-template/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/libs/bootstrap-template/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/backend/js/<?php echo htmlentities($controller); ?>.js"></script>
+
 </body>
 </html>
