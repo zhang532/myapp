@@ -41,7 +41,7 @@ trait Backend{
                     break;
                 
                 case 'FIND_IN_SET':
-                    $where[]=['FIND_IN_SET(:str,'.$k.')',['str'=>$v]];
+                    $where[]=['exp',Db::raw("FIND_IN_SET($v,$k)")];
                     break;
                 case 'BETWEEN':
                     $where[]=[$k,'BETWEEN',$v];

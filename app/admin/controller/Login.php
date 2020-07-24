@@ -8,6 +8,8 @@ use think\facade\Request;
 use think\facade\Session;
 use think\facade\View;
 use app\admin\library\Backend;
+use app\admin\model\Admin;
+use think\exception\ValidateException;
 
 class Login extends Backend
 {	
@@ -15,6 +17,7 @@ class Login extends Backend
 	{
 		parent::__construct();
 		View::layout(false);
+		$this->model=new Admin;
 	}
 
     public function index()
@@ -28,10 +31,22 @@ class Login extends Backend
 	 */
     public function toLogin(Request $request){
 		if(!$request->isPost())  throw new \think\Exception('异常消息', 10006);
+		$check = $request->checkToken('__token__');
+        
+        if(false === $check) {
+            throw new ValidateException('invalid token');
+		}
+		
 		$params=$request;
-		
-		
-    	Session::set('admin.username','fantastic');
+		$result=Admin::where(['username'=>$params['username'] ,'password'=>$this->model->encryptPassword($params['password'])])->find();
+		if($result){
+			Session::set('admin',$result);
+			return json(['code'=>200,'msg'=>'登陆成功']);
+		}else{
+			return json(['code'=>0,'msg'=>'登陆失败']);
+		}
+
+    	
     	
     	return redirect((string)url("/console/index"));
     	

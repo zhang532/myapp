@@ -1,14 +1,16 @@
-<?php /*a:1:{s:60:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\login\index.html";i:1595490629;}*/ ?>
+<?php /*a:1:{s:60:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\login\index.html";i:1595581319;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <title>登录页面 </title>
-<link rel="icon" href="favicon.ico" type="image/ico">
 <link href="/static/libs/bootstrap-template/css/bootstrap.min.css" rel="stylesheet">
 <link href="/static/libs/bootstrap-template/css/materialdesignicons.min.css" rel="stylesheet">
 <link href="/static/libs/bootstrap-template/css/style.min.css" rel="stylesheet">
+<script>
+  var Config=<?php echo json_encode($config); ?>;
+</script>
 <style>
 .lyear-wrapper {
     position: relative;
@@ -81,9 +83,8 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="/static/libs/bootstrap-template/js/jquery.min.js"></script>
-<script type="text/javascript" src="/static/libs/bootstrap-template/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/static/backend/js/<?php echo htmlentities($controller); ?>.js"></script>
+
+<script type="text/javascript"  data-main="/static/libs/require-js/config.js" src="/static/libs/require-js/require.js" ></script>
 
 </body>
 </html>
