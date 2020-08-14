@@ -50,7 +50,7 @@ class Backend extends Auth
 	public function menu(){
 		
         $data=AuthRule::where('status',1)->select()->toArray( );
-        $basemenu=Tree::getTreeMenu($data);
+        $basemenu=Tree::getTreeMenu($data,0,0);
 
 		return View::assign(['basemenu'=>$basemenu]);
       

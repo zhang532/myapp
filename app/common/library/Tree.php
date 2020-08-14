@@ -72,7 +72,7 @@ class Tree{
         $html = $html."</li>";
         }
        }
-       $html=$html ? '<ul class="nav nav-drawer nav-'.$v['level'].'-'.$v['is_href'].'" >'.$html.'</ul>' : $html;
+       $html=$html ? '<ul class="nav nav-drawer nav-'.$level.'-'.$v['is_href'].'" >'.$html.'</ul>' : $html;
     //    html_entity_decode()
        return $html;
        
