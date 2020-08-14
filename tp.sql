@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 123
+Source Server         : 本地
 Source Server Version : 50726
 Source Host           : localhost:3306
 Source Database       : tp
@@ -10,13 +10,13 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-07-28 17:44:14
+Date: 2020-08-14 20:57:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for t_admin
+-- Table structure for `t_admin`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_admin`;
 CREATE TABLE `t_admin` (
@@ -41,7 +41,7 @@ CREATE TABLE `t_admin` (
 INSERT INTO `t_admin` VALUES ('1', 'admin', '4297f44b13955235245b2497399d7a93', '1', null, null, null, null, null, null, null, null);
 
 -- ----------------------------
--- Table structure for t_adminlog
+-- Table structure for `t_adminlog`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_adminlog`;
 CREATE TABLE `t_adminlog` (
@@ -57,7 +57,7 @@ CREATE TABLE `t_adminlog` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_art
+-- Table structure for `t_art`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_art`;
 CREATE TABLE `t_art` (
@@ -80,7 +80,7 @@ INSERT INTO `t_art` VALUES ('7', 'qweqwe', '3');
 INSERT INTO `t_art` VALUES ('8', 'qweweweww', '1');
 
 -- ----------------------------
--- Table structure for t_auth_group
+-- Table structure for `t_auth_group`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_auth_group`;
 CREATE TABLE `t_auth_group` (
@@ -96,7 +96,7 @@ CREATE TABLE `t_auth_group` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_auth_group_access
+-- Table structure for `t_auth_group_access`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_auth_group_access`;
 CREATE TABLE `t_auth_group_access` (
@@ -112,45 +112,47 @@ CREATE TABLE `t_auth_group_access` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_auth_rule
+-- Table structure for `t_auth_rule`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_auth_rule`;
 CREATE TABLE `t_auth_rule` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `name` char(80) NOT NULL DEFAULT '',
-  `title` char(20) NOT NULL DEFAULT '',
+  `title` char(30) NOT NULL DEFAULT '',
   `icon` varchar(50) DEFAULT NULL COMMENT 'icon',
   `pid` mediumint(8) DEFAULT NULL COMMENT '父id',
   `type` tinyint(1) NOT NULL DEFAULT '1',
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `condition` char(100) NOT NULL DEFAULT '',
+  `is_href` tinyint(1) DEFAULT NULL,
+  `level` tinyint(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_auth_rule
 -- ----------------------------
-INSERT INTO `t_auth_rule` VALUES ('1', '控制面板', 'console', 'mdi-home', '0', '1', '1', '');
-INSERT INTO `t_auth_rule` VALUES ('2', '查看', '/console/index', null, '1', '1', '0', '');
-INSERT INTO `t_auth_rule` VALUES ('3', '权限管理', 'auth', 'mdi-human-male', '0', '1', '1', '');
-INSERT INTO `t_auth_rule` VALUES ('4', '管理员管理', '/auth/admin', 'mdi-account', '3', '1', '1', '');
-INSERT INTO `t_auth_rule` VALUES ('5', '查看', '/auth/admin/index', null, '4', '1', '0', '');
-INSERT INTO `t_auth_rule` VALUES ('6', '添加', '/auth/admin/add', null, '4', '1', '0', '');
-INSERT INTO `t_auth_rule` VALUES ('7', '编辑', '/auth/admin/edit', null, '4', '1', '0', '');
-INSERT INTO `t_auth_rule` VALUES ('8', '删除', '/auth/admin/del', null, '4', '1', '0', '');
-INSERT INTO `t_auth_rule` VALUES ('9', '角色管理', '/auth/role', 'mdi-account-multiple', '3', '1', '1', '');
-INSERT INTO `t_auth_rule` VALUES ('10', '查看', '/auth/role/index', null, '9', '1', '0', '');
-INSERT INTO `t_auth_rule` VALUES ('11', '添加', '/auth/role/add', null, '9', '1', '0', '');
-INSERT INTO `t_auth_rule` VALUES ('12', '编辑', '/auth/role/edit', null, '9', '1', '0', '');
-INSERT INTO `t_auth_rule` VALUES ('13', '删除', '/auth/role/del', null, '9', '1', '0', '');
-INSERT INTO `t_auth_rule` VALUES ('14', '菜单管理', '/auth/rule', 'mdi-menu', '3', '1', '1', '');
-INSERT INTO `t_auth_rule` VALUES ('15', '查看', '/auth/rule/index', null, '14', '1', '0', '');
-INSERT INTO `t_auth_rule` VALUES ('16', '添加', '/auth/rule/add', null, '14', '1', '0', '');
-INSERT INTO `t_auth_rule` VALUES ('17', '编辑', '/auth/rule/edit', null, '14', '1', '0', '');
-INSERT INTO `t_auth_rule` VALUES ('18', '删除', '/auth/rule/del', null, '14', '1', '0', '');
+INSERT INTO `t_auth_rule` VALUES ('1', '控制面板', '/console', 'mdi-home', '0', '1', '1', '', '1', '1');
+INSERT INTO `t_auth_rule` VALUES ('2', '查看', '/console/index', null, '1', '1', '0', '', '1', '2');
+INSERT INTO `t_auth_rule` VALUES ('3', '权限管理', 'auth', 'mdi-human-male', '0', '1', '1', '', '0', '1');
+INSERT INTO `t_auth_rule` VALUES ('4', '管理员管理', '/auth.admin', 'mdi-account', '3', '1', '1', '', '1', '2');
+INSERT INTO `t_auth_rule` VALUES ('5', '查看', '/auth.admin/index', null, '4', '1', '1', '', '1', '3');
+INSERT INTO `t_auth_rule` VALUES ('6', '添加', '/auth.admin/add', null, '4', '1', '0', '', '1', '3');
+INSERT INTO `t_auth_rule` VALUES ('7', '编辑', '/auth.admin/edit', null, '4', '1', '0', '', '1', '3');
+INSERT INTO `t_auth_rule` VALUES ('8', '删除', '/auth.admin/del', null, '4', '1', '0', '', '1', '3');
+INSERT INTO `t_auth_rule` VALUES ('9', '角色管理', '/auth.role', 'mdi-account-multiple', '3', '1', '1', '', '1', '2');
+INSERT INTO `t_auth_rule` VALUES ('10', '查看', '/auth.role/index', null, '9', '1', '0', '', '1', '3');
+INSERT INTO `t_auth_rule` VALUES ('11', '添加', '/auth.role/add', null, '9', '1', '0', '', '1', '3');
+INSERT INTO `t_auth_rule` VALUES ('12', '编辑', '/auth.role/edit', null, '9', '1', '0', '', '1', '3');
+INSERT INTO `t_auth_rule` VALUES ('13', '删除', '/auth.role/del', null, '9', '1', '0', '', '1', '3');
+INSERT INTO `t_auth_rule` VALUES ('14', '菜单管理', '/auth.rule', 'mdi-menu', '3', '1', '1', '', '1', '2');
+INSERT INTO `t_auth_rule` VALUES ('15', '查看', '/auth.rule/index', null, '14', '1', '0', '', '1', '3');
+INSERT INTO `t_auth_rule` VALUES ('16', '添加', '/auth.rule/add', null, '14', '1', '0', '', '1', '3');
+INSERT INTO `t_auth_rule` VALUES ('17', '编辑', '/auth.rule/edit', null, '14', '1', '0', '', '1', '3');
+INSERT INTO `t_auth_rule` VALUES ('18', '删除', '/auth.rule/del', null, '14', '1', '0', '', '1', '3');
 
 -- ----------------------------
--- Table structure for t_category
+-- Table structure for `t_category`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_category`;
 CREATE TABLE `t_category` (
