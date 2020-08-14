@@ -4,7 +4,7 @@ declare (strict_types = 1);
 namespace app\admin\controller;
 
 use think\captcha\facade\Captcha;
-use think\facade\Request;
+use think\Request;
 use think\facade\Session;
 use think\facade\View;
 use app\admin\library\Backend;
@@ -13,10 +13,11 @@ use think\exception\ValidateException;
 
 class Login extends Backend
 {	
-	public function __construct()
+	public function __construct(Request $request)
 	{
 		parent::__construct();
-		View::layout(false);
+		$this->request=$request;
+		$this->layouts(false);
 		$this->model=new Admin;
 	}
 
@@ -29,26 +30,29 @@ class Login extends Backend
 	/**
 	 * 登陆
 	 */
-    public function toLogin(Request $request){
-		if(!$request->isPost())  throw new \think\Exception('异常消息', 10006);
-		$check = $request->checkToken('__token__');
+    public function toLogin(){
+		if(!$this->request->isPost())  throw new \think\Exception('异常消息', 10006);
+		$params=$this->request;
+
+		$check = $this->request->checkToken('__token__');
         
         if(false === $check) {
-            throw new ValidateException('invalid token');
+            return json(['code'=>0,'msg'=>'表单令牌有误','__token__'=>token()]);
+		}
+		if( !captcha_check($params['captcha']))
+		{
+			// 验证失败
+			return json(['code'=>0,'msg'=>'验证码错误','__token__'=>token()]);
 		}
 		
-		$params=$request;
 		$result=Admin::where(['username'=>$params['username'] ,'password'=>$this->model->encryptPassword($params['password'])])->find();
 		if($result){
 			Session::set('admin',$result);
-			return json(['code'=>200,'msg'=>'登陆成功']);
+			return json(['code'=>200,'msg'=>'登陆成功','url'=>(string)url('/console/index') ]);
 		}else{
-			return json(['code'=>0,'msg'=>'登陆失败']);
+			return json(['code'=>0,'msg'=>'用户名或密码错误','__token__'=>token()]);
 		}
 
-    	
-    	
-    	return redirect((string)url("/console/index"));
     	
     }
 	/**

@@ -17,14 +17,7 @@ class Index extends Backend
 
     public function index()
     {	
-    	$User= new User;
-    	$category=new Category;
-		$list=$category->with('arts')->select()->toArray();  
-		// $art=new art;
-		// $list=$art->with('category')->select()->toArray();  
-		// dump($list);      
-    	return view() ;
-
+    	return redirect((string)url('/console/index'));    
     }
 
      public function show()

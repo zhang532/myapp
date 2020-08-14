@@ -1,4 +1,4 @@
-<?php /*a:1:{s:60:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\login\index.html";i:1595581319;}*/ ?>
+<?php /*a:1:{s:60:"D:\phpstudy_pro\WWW\ww.tp.cn\app\admin\view\login\index.html";i:1596208139;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -57,7 +57,7 @@
       <div class="login-header text-center">
         <h3>后台管理</h3>
       </div>
-      <form action="javascript:;"  method="post">
+      <form action="javascript:;"  method="post" data-url="<?php echo url('/login/tologin'); ?>">
 		  <?php echo token_field(); ?>
         <div class="form-group has-feedback feedback-left">
           <input type="text" placeholder="请输入您的用户名" class="form-control" name="username" id="username" />

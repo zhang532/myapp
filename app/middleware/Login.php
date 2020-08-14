@@ -8,9 +8,9 @@ use think\facade\Session;
 use think\facade\Request;
 class Login
 {
-    protected $LoginUrl='login/index';
+    protected $LoginUrl='/login/index';
 
-    protected $HomeUrl='/admin';
+    protected $RedirectUrl='/console/index';
     /**
      * 处理请求
      *
@@ -19,12 +19,12 @@ class Login
      * @return Response
      */
     public function handle($request, \Closure $next){
-        if (!Session::has('admin') && !stristr(Request::url(),'/login/') ) {
+        if (!Session::has('admin') && !stripos($request->url(),'/login/') ) {
             
              return redirect((string)url($this->LoginUrl)); #去登陆
 
-        }elseif(Session::has('admin') && $this->LoginUrl == $request->url()){
-            return redirect((string)url($this->HomeUrl)); #去登陆
+        }elseif(Session::has('admin') &&  stripos($request->url(),$this->LoginUrl) ){
+            return redirect((string)url($this->RedirectUrl)); #去控制面板
         }
 
         return $next($request); #正常通过

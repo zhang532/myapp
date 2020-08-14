@@ -6,6 +6,7 @@ use app\admin\model\Category;
 use app\admin\model\Art;
 use think\facade\Request;
 use think\facade\Session;
+use think\facade\View;
 use app\admin\library\Backend;
 
 class Console extends Backend
